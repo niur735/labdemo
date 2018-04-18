@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Music Bounce Ball</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/script.js" defer></script>
+  </head>
+  
+<script>
+var context;
+var x=100;
+var y=200;
+var dx=5;
+var dy=5;
+
+function init()
+{
+  context= myCanvas.getContext('2d');
+  setInterval(draw,10);
+}
+
+function draw()
+{
+  context.clearRect(0,0, 800,800);
+  context.beginPath();
+  context.fillStyle="#0000ff";
+  // Draws a circle of radius 20 at the coordinates 100,100 on the canvas
+  context.arc(x,y,20,0,Math.PI*2,true);
+  context.closePath();
+  context.fill();
+  // Boundary Logic
+  
+if( x<0 || x>800) dx=-dx; 
+if( y<0 || y>800) dy=-dy; 
+x+=dx; 
+y+=dy;
+}
+
+</script>
+<body onload="init();">
+  <canvas id="myCanvas" width="800" height="800" >
+  </canvas>
+      <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="/script.js"></script>
+</body>
+
+    
+    
+</html>
